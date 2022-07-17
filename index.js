@@ -16,6 +16,11 @@ function handleClick() {
             remainingText.textContent = `Remaining cards: ${data.remaining}`
             deckId = data.deck_id
             drawCardBtn.disabled = false
+            header.textContent = "Game of War"
+            let computerScore = 0
+            let myScore = 0
+            computerScoreEl.textContent = `Computer score: ${computerScore}`
+            myScoreEl.textContent = `My score: ${myScore}`
         })
 }
 
