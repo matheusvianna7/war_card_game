@@ -15,7 +15,7 @@ function handleClick() {
         .then(data => {
             remainingText.textContent = `Remaining cards: ${data.remaining}`
             deckId = data.deck_id
-            console.log(deckId)
+            drawCardBtn.disabled = false
         })
 }
 
@@ -38,25 +38,15 @@ drawCardBtn.addEventListener("click", () => {
             if (data.remaining === 0) {
                 drawCardBtn.disabled = true
                 if (computerScore > myScore) {
-                    // display "The computer won the game!"
                     header.textContent = "The computer won the game!"
                 } else if (myScore > computerScore) {
-                    // display "You won the game!"
                     header.textContent = "You won the game!"
                 } else {
-                    // display "It's a tie game!"
                     header.textContent = "It's a tie game!"
                 }
             }
         })
 })
-
-/**
- * Challenge:
- * 
- * Display the final winner in the header at the top by
- * replacing the text of the h2.
- */
 
 function determineCardWinner(card1, card2) {
     const valueOptions = ["2", "3", "4", "5", "6", "7", "8", "9", 
@@ -76,4 +66,3 @@ function determineCardWinner(card1, card2) {
         return "War!"
     }
 }
-
